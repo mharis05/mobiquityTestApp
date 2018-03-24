@@ -1,0 +1,5 @@
+employeeManagementTestSuite
+employeeManagementTestSuite.pageObjects
+employeeManagementTestSuite.pageObjects.locators
+employeeManagementTestSuite.stepDefinitions
+employeeManagementTestSuite.utils
