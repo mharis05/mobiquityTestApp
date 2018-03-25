@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import java.io.File;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources/DeleteEmployee.feature",
+@CucumberOptions(features="src/test/resources/",
         plugin = { "pretty", "html:target/htmlreport","com.cucumber.listener.ExtentCucumberFormatter:target/testReport.html"})
 public class TestRunner {
 

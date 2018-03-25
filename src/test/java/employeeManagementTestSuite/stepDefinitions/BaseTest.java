@@ -2,19 +2,12 @@ package employeeManagementTestSuite.stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 
-
-/**
- * BaseTest.java
- * Purpose: Basic test features defined here.
- *
- * @author Haris Saleem
- */
-
 public class BaseTest {
 
     protected static WebDriver driver;
     private static BrowserInvoke invokeBrowser = new BrowserInvoke();
     protected String url = "http://cafetownsend-angular-rails.herokuapp.com";
+
     //Overriding SharedDriver implementation to make sure all driver instances
     //are killed after completion of text execution.
 
@@ -23,7 +16,7 @@ public class BaseTest {
         public void run() {
             try {
                 driver.quit();
-            } catch ( Exception e ) {
+            } catch (Exception e) {
                 // e.printStackTrace();
             }
         }
@@ -34,9 +27,10 @@ public class BaseTest {
         initializeWebDriver();
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
+
     //provide browser name in the parameter (Not case sensitive)
     private static void initializeWebDriver() {
-        driver = invokeBrowser.openBrowser("chrome");
+        driver = invokeBrowser.openBrowser("headless");
     }
 
 

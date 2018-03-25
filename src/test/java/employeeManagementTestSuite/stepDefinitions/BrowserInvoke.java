@@ -6,14 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-/**
- * BrowserInvoke.java
- * Purpose: WebDriver declaration, contains the implementation which
- * encapsulates browser selection.
- *
- * @author Haris Saleem
- */
-
 public class BrowserInvoke {
 
 
