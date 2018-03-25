@@ -46,5 +46,6 @@ Test Suite runs confugurably on Firefox, Chrome and Chrome Headless. This settin
 This project has been tested on:
 - Chrome version Version 65.0 (chromeDriver version 2.36)
 - FireFox version 56.0 (geckoDriver version 16.1)
+- Selenium version 3.4.0
 
 
