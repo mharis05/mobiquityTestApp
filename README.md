@@ -39,14 +39,12 @@ For each of the scenarios below, Log In is executed first.
 - URL for the application is configured inside "BaseTest.java"
 - ExtentReport for the test suite generates at target/testReport.html
 
-
 # Browser Support:
 
-Test Suite runs confugurably on Firefox, Chrome and Chrome Headless. This setting can be configured inside BaseTest.initializeWebDriver().
+Test Suite runs confugurably on Firefox, Chrome and Chrome Headless. This setting can be configured inside BaseTest.initializeWebDriver(). Available options: "headless", "chrome", "firefox"
 
 This project has been tested on:
 - Chrome version Version 65.0 (chromeDriver version 2.36)
 - FireFox version 56.0 (geckoDriver version 16.1)
-
 
 
