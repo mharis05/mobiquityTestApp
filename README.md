@@ -53,7 +53,7 @@ This project has been tested on:
         - In TestRunner.java file, provide feature filename in features tag. For example:
         '''
         
-        features="src/test/resources/CreateEmployee.feature", ...
+        @CucumberOptions(features="src/test/resources/CreateEmployee.feature", ...
         
         '''
 - To Run Individual Scenario within a Feature (For e.g. running only Create Valid Employee scenario)
@@ -67,7 +67,7 @@ This project has been tested on:
         - In TestRunner.java file, just provide the path till the resources folder:
         '''
         
-        features="src/test/resources/", ...
+        @CucumberOptions(features="src/test/resources/", ...
         
         '''
         
