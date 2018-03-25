@@ -51,24 +51,23 @@ This project has been tested on:
 # How to Run:
 - To Run Individual Feature (For e.g. running only Create Employee Scenarios):
         - In TestRunner.java file, provide feature filename in features tag. For example:
-        '''
         
-        @CucumberOptions(features="src/test/resources/CreateEmployee.feature", ...
+        ```
+        @CucumberOptions(features="src/test/resources/CreateEmployee.feature", ...      
+        ```
         
-        '''
 - To Run Individual Scenario within a Feature (For e.g. running only Create Valid Employee scenario)
-        - In TestRunner.java file. provide:
-        '''
+        - In TestRunner.java file. provide:    
         
+        ```
         @CucumberOptions(features="src/test/resources/CreateEmployee.feature", tags = "@CreateEmployeeValid", ...
+        ```
         
-        '''
 - To Run the whole Suite
         - In TestRunner.java file, just provide the path till the resources folder:
-        '''
         
+        ```
         @CucumberOptions(features="src/test/resources/", ...
-        
-        '''
+        ```
         
  Similarly, Suite, Feature(s) and Scenario(s) can be run from maven by providing the plugins with -DCucumberOptions argumentlist.
