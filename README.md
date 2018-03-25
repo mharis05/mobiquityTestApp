@@ -1,7 +1,7 @@
 # mobiquityTestApp
-A small Behavior Driven framework that utilizes Selenium WebDriver with Java and Cucumber to automated some basic flows.
+A small Behavior Driven framework that utilizes Selenium WebDriver with Java and Cucumber to automate some basic flows.
 
-## Technology Stack:
+# Technology Stack:
 - Java
 - Cucumber BDD
 - Selenium WebDriver
