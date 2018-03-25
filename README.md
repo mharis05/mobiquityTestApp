@@ -37,11 +37,22 @@ For each of the scenarios below, Log In is executed first.
 
 - Driver files for both Chrome and Firefox can be found inside /test/resources/ folder. 
 - URL for the application is configured inside "BaseTest.java"
+
+```java
+protected String url = "http://cafetownsend-angular-rails.herokuapp.com";
+```
+
 - ExtentReport for the test suite generates at target/testReport.html
 
 # Browser Support:
 
-Test Suite runs confugurably on Firefox, Chrome and Chrome Headless. This setting can be configured inside BaseTest.initializeWebDriver(). Available options: "headless", "chrome", "firefox"
+Test Suite runs confugurably on Firefox, Chrome and Chrome Headless. This setting can be configured inside BaseTest.initializeWebDriver(). 
+
+```java
+private static void initializeWebDriver() {
+        driver = invokeBrowser.openBrowser("headless"); //Provide the browser name here. Available options: "headless", "chrome",                                                               //"firefox" (Not case sensitive)
+    }
+```
 
 This project has been tested on:
 - Chrome version Version 65.0 (chromeDriver version 2.36)
