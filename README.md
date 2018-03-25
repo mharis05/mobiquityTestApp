@@ -50,7 +50,7 @@ Test Suite runs confugurably on Firefox, Chrome and Chrome Headless. This settin
 
 ```java
 private static void initializeWebDriver() {
-        driver = invokeBrowser.openBrowser("headless"); //Provide the browser name here. Available options: "headless", "chrome", //"firefox" (Not case sensitive)
+        driver = invokeBrowser.openBrowser("headless"); //Provide the browser name here. Available options: "headless", "chrome", "firefox" (Not case sensitive)
     }
 ```
 
