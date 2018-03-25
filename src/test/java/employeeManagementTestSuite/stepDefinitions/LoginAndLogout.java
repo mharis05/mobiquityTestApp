@@ -20,8 +20,10 @@ public class LoginAndLogout extends BaseTest {
     //Stored as a member variable to be used for validation later
     private String userName;
 
+
     @Given("^Employee management app is open in browser$")
     public void employeeManagementAppIsOpenInBrowser() {
+        driver.manage().window().maximize();
         driver.get(url);
         driver.manage().window().maximize();
         EmployeeManagerWaits.waitForSeconds(driver,30);

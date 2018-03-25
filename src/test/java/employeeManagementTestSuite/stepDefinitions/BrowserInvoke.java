@@ -18,8 +18,8 @@ public class BrowserInvoke {
 
 
     String browserName = null;
-    private String chromeDriverPath = "C:\\drivers\\chromedriver.exe";
-    private String mozillaPath = "C:\\drivers\\geckodriver.exe";
+    private String chromeDriverPath = "src/test/resources/drivers/chromedriver.exe";
+    private String mozillaPath = "src/test/resources/drivers/geckodriver.exe";
 
     public WebDriver openBrowser(String browserName) {
 

@@ -8,9 +8,14 @@ public class DataGenerator {
     private static String firstName;
     private static int nameMax = 1000;
     private static int nameMin = 1;
-    private static String namePostFix = String.valueOf(random.nextInt((nameMax - nameMin) + 1) + nameMin);;
+    private static String namePostFix;
+
+    private static void generatePostFixForName(){
+        namePostFix = String.valueOf(random.nextInt((nameMax - nameMin) + 1) + nameMin);
+    }
 
     private static String generateFirstName() {
+        generatePostFixForName();
         firstName = "FirstName" + namePostFix;
         return firstName;
     }
@@ -23,7 +28,7 @@ public class DataGenerator {
     }
 
     private static String generateStartDate() {
-        int maxDay = 31;
+        int maxDay = 28;
         int minDay = 1;
         int maxMonth = 12;
         int minMonth = 1;

@@ -7,33 +7,37 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class EmployeeDetailsPage extends BaseTest {
-    private WebElement element;
+    private static WebElement element;
     private SoftAssertions softly = new SoftAssertions();
+    private Actions actions = new Actions(driver);
 
     public void enterFirstName(String employeeFirstName) {
         EmployeeManagerWaits.waitForJsToLoad(driver);
         EmployeeManagerWaits.waitForSeconds(driver,5);
         element = driver.findElement(By.xpath(EmployeeDetailsPageLocators.xTxtFirstName));
         element.clear();
-        element.sendKeys(employeeFirstName);
+        actions.moveToElement(element).sendKeys(employeeFirstName).perform();
     }
 
     public void enterLastName(String employeeLastName) {
         EmployeeManagerWaits.waitForJsToLoad(driver);
         EmployeeManagerWaits.waitForSeconds(driver,5);
+        EmployeeManagerWaits.sleepForSeconds(3);
         element = driver.findElement(By.xpath(EmployeeDetailsPageLocators.xTxtLastName));
         element.clear();
-        element.sendKeys(employeeLastName);
+        actions.moveToElement(element).sendKeys(employeeLastName).perform();
     }
 
     public void enterEmail(String email) {
         EmployeeManagerWaits.waitForJsToLoad(driver);
         EmployeeManagerWaits.waitForSeconds(driver,5);
+        EmployeeManagerWaits.sleepForSeconds(3);
         element = driver.findElement(By.xpath(EmployeeDetailsPageLocators.xTxtEmail));
         element.clear();
-        element.sendKeys(email);
+        actions.moveToElement(element).sendKeys(email).perform();
     }
 
     public void enterStartDate(String start_date) {
@@ -42,26 +46,28 @@ public class EmployeeDetailsPage extends BaseTest {
         element = driver.findElement(By.xpath(EmployeeDetailsPageLocators.xTxtStartDate));
         element.clear();
         EmployeeManagerWaits.waitForSeconds(driver, 5);
-        element.sendKeys(start_date);
+        actions.moveToElement(element).sendKeys(start_date).perform();
     }
 
     public void clickAddButton() {
         EmployeeManagerWaits.waitForJsToLoad(driver);
         EmployeeManagerWaits.waitForSeconds(driver,5);
         element = driver.findElement(By.xpath(EmployeeDetailsPageLocators.xAddButton));
-        element.click();
+        actions.moveToElement(element).click().perform();
     }
 
     public void clickUpdateButton() {
         EmployeeManagerWaits.waitForJsToLoad(driver);
         EmployeeManagerWaits.waitForSeconds(driver,5);
-        driver.findElement(By.xpath(EmployeeDetailsPageLocators.xUpdateButton)).click();
+        element = driver.findElement(By.xpath(EmployeeDetailsPageLocators.xUpdateButton));
+        actions.moveToElement(element).click().perform();
     }
 
     public void clickDeleteButton() {
         EmployeeManagerWaits.waitForJsToLoad(driver);
         EmployeeManagerWaits.waitForSeconds(driver,5);
-        driver.findElement(By.xpath(EmployeeDetailsPageLocators.xDeleteButton)).click();
+        element = driver.findElement(By.xpath(EmployeeDetailsPageLocators.xDeleteButton));
+        actions.moveToElement(element).click().perform();
     }
 
     public void validateThatEmployeeIsNotSaved() {

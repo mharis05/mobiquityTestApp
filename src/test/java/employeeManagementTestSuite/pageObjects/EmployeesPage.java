@@ -6,14 +6,16 @@ import employeeManagementTestSuite.utils.EmployeeManagerWaits;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import static employeeManagementTestSuite.utils.JSActions.doubleClick;
+import static employeeManagementTestSuite.utils.JSActions.scrollToElement;
 
 public class EmployeesPage extends BaseTest {
 
     private SoftAssertions softly = new SoftAssertions();
-    private WebElement element;
+    private static WebElement element;
     private static String fullEmployeeName;
     private Actions actions = new Actions(driver);
 
@@ -42,8 +44,11 @@ public class EmployeesPage extends BaseTest {
     }
 
     public void validatePresenceOfEmployeeInList(String employeeFirstName, String employeeLastName) {
-        EmployeeManagerWaits.waitForSeconds(driver,5);
+        EmployeeManagerWaits.waitForSeconds(driver,10);
+        EmployeeManagerWaits.sleepForSeconds(3);
         selectAnEmployee(employeeFirstName, employeeLastName);
+        scrollToElement(element);
+        EmployeeManagerWaits.sleepForSeconds(1);
         String actualName = element.getText();
         softly.assertThat(actualName).as("Name retrieved from List: ").isEqualTo(fullEmployeeName);
         softly.assertAll();
@@ -55,7 +60,7 @@ public class EmployeesPage extends BaseTest {
         fullEmployeeName = employeeFirstName + " " + employeeLastName;
         try {
             element = driver.findElement(By.xpath(EmployeesPageLocators.xLiEmpName.replaceAll("FULLNAME", fullEmployeeName)));
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             element = null;
         }
 
@@ -63,14 +68,18 @@ public class EmployeesPage extends BaseTest {
 
     public void clickAnEmployee(String employeeFirstName, String employeeLastName) {
         EmployeeManagerWaits.waitForJsToLoad(driver);
-        EmployeeManagerWaits.waitForSeconds(driver,5);
+        EmployeeManagerWaits.waitForSeconds(driver,10);
         selectAnEmployee(employeeFirstName, employeeLastName);
-        actions.moveToElement(element).click().build().perform();
+        EmployeeManagerWaits.sleepForSeconds(3);
+        scrollToElement(element);
+        EmployeeManagerWaits.sleepForSeconds(5);
+        actions.click(element).build().perform();
+
     }
 
     public void clickUpdateButton() {
         EmployeeManagerWaits.waitForJsToLoad(driver);
-        EmployeeManagerWaits.waitForSeconds(driver,5);
+        EmployeeManagerWaits.waitForSeconds(driver,10);
         element = driver.findElement(By.cssSelector(EmployeesPageLocators.cssBtnEditEmployee));
         actions.moveToElement(element).click().build().perform();
     }
@@ -78,7 +87,7 @@ public class EmployeesPage extends BaseTest {
     public void pressDeleteButton() {
 
         EmployeeManagerWaits.waitForJsToLoad(driver);
-        EmployeeManagerWaits.waitForSeconds(driver,5);
+        EmployeeManagerWaits.waitForSeconds(driver,10);
         element = driver.findElement(By.cssSelector(EmployeesPageLocators.cssBtnDeleteEmployee));
         actions.moveToElement(element).click().build().perform();
     }
@@ -116,7 +125,8 @@ public class EmployeesPage extends BaseTest {
                 System.out.println("Element was not removed from the list view even though it was deleted");
                 break;
             }
-            actions.moveToElement(element).pause(10).build().perform();
+            scrollToElement(element);
+            actions.pause(10).build().perform();
             EmployeeManagerWaits.sleepForSeconds(1);
             selectAnEmployee(employeeFirstName, employeeLastName);
             count++;
@@ -156,7 +166,16 @@ public class EmployeesPage extends BaseTest {
         EmployeeManagerWaits.waitForSeconds(driver, 10);
         selectAnEmployee(employeeFirstName, employeeLastName);
         EmployeeManagerWaits.sleepForSeconds(3);
-        actions.moveToElement(element).doubleClick().perform();
+        scrollToElement(element);
+        actions.moveToElement(element).doubleClick(element).perform();
+        actions.perform();
+        // Due to a bug in geckoDriver, double click does not work -___- I have had enough of this!
+        try{
+            doubleClick(element);
+        } catch (Exception e){
+
+        }
+
 
     }
 }
