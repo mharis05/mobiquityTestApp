@@ -48,4 +48,27 @@ This project has been tested on:
 - FireFox version 56.0 (geckoDriver version 16.1)
 - Selenium version 3.4.0
 
-
+# How to Run:
+- To Run Individual Feature (For e.g. running only Create Employee Scenarios):
+        - In TestRunner.java file, provide feature filename in features tag. For example:
+        '''
+        
+        features="src/test/resources/CreateEmployee.feature", ...
+        
+        '''
+- To Run Individual Scenario within a Feature (For e.g. running only Create Valid Employee scenario)
+        - In TestRunner.java file. provide:
+        '''
+        
+        @CucumberOptions(features="src/test/resources/CreateEmployee.feature", tags = "@CreateEmployeeValid", ...
+        
+        '''
+- To Run the whole Suite
+        - In TestRunner.java file, just provide the path till the resources folder:
+        '''
+        
+        features="src/test/resources/", ...
+        
+        '''
+        
+ Similarly, Suite, Feature(s) and Scenario(s) can be run from maven by providing the plugins with -DCucumberOptions argumentlist.
